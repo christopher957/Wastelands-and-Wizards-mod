@@ -12,6 +12,7 @@ public class CommonProxy {
         //this calls the class that creates items
 //        ModItems.createItems();
         ModBlocks.createBlocks();
+        new wastelandBiome();
     }
 
     public void init(FMLInitializationEvent e) {
@@ -20,6 +21,7 @@ public class CommonProxy {
         //this calls the class that skins and frames items once they have been created
 //        ItemRenderRegister.registerItemRenderer();
         BlockRenderRegister.registerBlockRenderer();
+//        GameRegistry.registerWorldGenerator(, 0);
     }
 
     @Mod.EventHandler

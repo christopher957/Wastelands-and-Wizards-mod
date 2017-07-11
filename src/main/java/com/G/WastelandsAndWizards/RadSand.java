@@ -9,6 +9,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Created by skynet on 8/6/2016.
@@ -27,7 +29,7 @@ public class RadSand extends Block {
     }
 
     public RadSand(String unlocalizedName, float hardness, float resistance) {
-        this(unlocalizedName, Material.CACTUS, hardness, resistance);
+        this(unlocalizedName, Material.SAND, hardness, resistance);
     }
 
     public RadSand(String unlocalizedName) {
@@ -41,6 +43,11 @@ public class RadSand extends Block {
         return axis;
     }
 
+    @SideOnly(Side.CLIENT)
+    public double getMaxRenderDistanceSquared()
+    {
+        return 4096.0D;
+    }
 
     @Override
     public void onEntityCollidedWithBlock (World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {

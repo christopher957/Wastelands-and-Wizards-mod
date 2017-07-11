@@ -35,10 +35,11 @@ public class wasteGenLayerBiome extends GenLayer {
 
         int desertIdx =  BiomeManager.BiomeType.DESERT.ordinal();
 
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.DESERT, 30));
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.SAVANNA, 20));
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.PLAINS, 10));
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(wastelandBiome.WASTELAND_BIOME, 40));
+
+        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.DESERT, 1));
+        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.SAVANNA, 1));
+        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.PLAINS, 1));
+        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(wastelandBiome.WASTELAND_BIOME, 100));
 
         if (p_i45560_4_ == WorldType.DEFAULT_1_1) {
             biomes[desertIdx].clear();
