@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "wastelandsandwizards:blocks/radglass_block"
+        "all": "wastelandsandwizards:block/radglass_block"
     }
 }

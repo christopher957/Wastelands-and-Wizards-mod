@@ -12,8 +12,10 @@ public class BlockRenderRegister {
     public static String modid = Main.MODID;
 
     public static void registerBlockRenderer() {
-        reg(ModBlocks.tutorialBlock);
+        reg(ModBlocks.radglass_block);
+        reg(ModBlocks.radsand_block);
     }
+
 
     public static void reg(Block block) {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher()

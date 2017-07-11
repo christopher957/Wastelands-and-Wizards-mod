@@ -1,5 +1,7 @@
 package com.G.WastelandsAndWizards;
 
+import net.minecraft.world.WorldType;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -8,7 +10,7 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
         //this calls the class that creates items
-        ModItems.createItems();
+//        ModItems.createItems();
         ModBlocks.createBlocks();
     }
 
@@ -16,10 +18,13 @@ public class CommonProxy {
         //super.init(e); //dont know what this does but it no longer seems to work so if shit no worky figure it out later
 
         //this calls the class that skins and frames items once they have been created
-        ItemRenderRegister.registerItemRenderer();
+//        ItemRenderRegister.registerItemRenderer();
+        BlockRenderRegister.registerBlockRenderer();
     }
 
-    public void postInit(FMLPostInitializationEvent e) {
+    @Mod.EventHandler
+    public static void postInit(FMLPostInitializationEvent event) {
+        WorldType THEWASTE = new WorldTypeWasteLand(4, "TheWaste");
 
     }
 }

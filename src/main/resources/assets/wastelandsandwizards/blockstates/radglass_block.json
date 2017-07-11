@@ -1,5 +1,17 @@
 {
-    "variants": {
-        "normal": { "model": "wastelandsandwizards:radglass_block" }
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "wastelandsandwizards:block/radglass_block"
+    },
+    "model": "cube_all"
+  },
+  "variants": {
+    "normal": {
+      "model": "cube_all"
+    },
+    "inventory": {
+      "model": "cube_all"
     }
+  }
 }

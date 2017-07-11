@@ -5,8 +5,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -15,11 +13,11 @@ import net.minecraft.world.World;
 /**
  * Created by skynet on 8/6/2016.
  */
-public class RadGlass extends Block {
+public class RadGlass extends Block{
 
     public RadGlass(String unlocalizedName, Material material, float hardness, float resistance) {
         super(material);
-        this.setUnlocalizedName(unlocalizedName);
+        this.setUnlocalizedName(Main.MODID + ":" + unlocalizedName);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         this.setHardness(hardness);
         this.setResistance(resistance);
@@ -46,9 +44,8 @@ public class RadGlass extends Block {
 
     @Override
     public void onEntityCollidedWithBlock (World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        System.out.println(" boop " );
-        if (entityIn instanceof EntityLiving) {
-            ((EntityLiving) entityIn).addPotionEffect(new PotionEffect(net.minecraft.potion.Potion.getPotionById(8196), 100, 1));
-        }
+        entityIn.setFire(1);
+        entityIn.setGlowing(true);
     }
 }
+

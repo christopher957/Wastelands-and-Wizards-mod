@@ -1,0 +1,125 @@
+---- Minecraft Crash Report ----
+// Would you like a cupcake?
+
+Time: 9/24/16 1:44 PM
+Description: Colliding entity with block
+
+java.lang.NullPointerException: Colliding entity with block
+	at net.minecraft.entity.EntityLivingBase.onNewPotionEffect(EntityLivingBase.java:860)
+	at net.minecraft.entity.EntityLivingBase.addPotionEffect(EntityLivingBase.java:798)
+	at com.G.WastelandsAndWizards.RadSand.onEntityCollidedWithBlock(RadSand.java:51)
+	at net.minecraft.entity.Entity.doBlockCollisions(Entity.java:1043)
+	at net.minecraft.entity.Entity.moveEntity(Entity.java:961)
+	at net.minecraft.entity.EntityLivingBase.moveEntityWithHeading(EntityLivingBase.java:1988)
+	at net.minecraft.entity.EntityLivingBase.onLivingUpdate(EntityLivingBase.java:2426)
+	at net.minecraft.entity.EntityLiving.onLivingUpdate(EntityLiving.java:643)
+	at net.minecraft.entity.EntityAgeable.onLivingUpdate(EntityAgeable.java:178)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:2218)
+	at net.minecraft.entity.EntityLiving.onUpdate(EntityLiving.java:342)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:2106)
+	at net.minecraft.world.WorldServer.updateEntityWithOptionalForce(WorldServer.java:872)
+	at net.minecraft.world.World.updateEntity(World.java:2073)
+	at net.minecraft.world.World.updateEntities(World.java:1886)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:644)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:783)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:687)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:156)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:536)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.minecraft.entity.EntityLivingBase.onNewPotionEffect(EntityLivingBase.java:860)
+	at net.minecraft.entity.EntityLivingBase.addPotionEffect(EntityLivingBase.java:798)
+	at com.G.WastelandsAndWizards.RadSand.onEntityCollidedWithBlock(RadSand.java:51)
+
+-- Block being collided with --
+Details:
+	Block: wastelandsandwizards:Rad Sand
+	Block location: World: (-161,64,247), Chunk: (at 15,4,7 in -11,15; contains blocks -176,0,240 to -161,255,255), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+Stacktrace:
+	at net.minecraft.entity.Entity.doBlockCollisions(Entity.java:1043)
+
+-- Entity being checked for collision --
+Details:
+	Entity Type: Villager (net.minecraft.entity.passive.EntityVillager)
+	Entity ID: 1147
+	Entity Name: Villager
+	Entity's Exact location: -160.50, 64.85, 247.50
+	Entity's Block location: World: (-161,64,247), Chunk: (at 15,4,7 in -11,15; contains blocks -176,0,240 to -161,255,255), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Entity's Momentum: 0.00, -0.38, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.entity.Entity.moveEntity(Entity.java:961)
+	at net.minecraft.entity.EntityLivingBase.moveEntityWithHeading(EntityLivingBase.java:1988)
+	at net.minecraft.entity.EntityLivingBase.onLivingUpdate(EntityLivingBase.java:2426)
+	at net.minecraft.entity.EntityLiving.onLivingUpdate(EntityLiving.java:643)
+	at net.minecraft.entity.EntityAgeable.onLivingUpdate(EntityAgeable.java:178)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:2218)
+	at net.minecraft.entity.EntityLiving.onUpdate(EntityLiving.java:342)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:2106)
+	at net.minecraft.world.WorldServer.updateEntityWithOptionalForce(WorldServer.java:872)
+	at net.minecraft.world.World.updateEntity(World.java:2073)
+
+-- Entity being ticked --
+Details:
+	Entity Type: Villager (net.minecraft.entity.passive.EntityVillager)
+	Entity ID: 1147
+	Entity Name: Villager
+	Entity's Exact location: -160.50, 64.85, 247.50
+	Entity's Block location: World: (-161,64,247), Chunk: (at 15,4,7 in -11,15; contains blocks -176,0,240 to -161,255,255), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Entity's Momentum: 0.00, -0.38, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.updateEntities(World.java:1886)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:644)
+
+-- Affected level --
+Details:
+	Level name: New World
+	All players: 1 total; [EntityPlayerMP['Player921'/479, l='New World', x=-159.71, y=67.13, z=248.20]]
+	Chunk stats: ServerChunkCache: 654 Drop: 0
+	Level seed: -3375240041640902907
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: 
+	Level spawn location: World: (-60,64,256), Chunk: (at 4,4,0 in -4,16; contains blocks -64,0,256 to -49,255,271), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 12009 game time, 12009 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 24318 (now: false), thunder time: 8999 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:783)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:687)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:156)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:536)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.10.2
+	Operating System: Windows 8.1 (amd64) version 6.3
+	Java Version: 1.7.0_79, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 504041064 bytes (480 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	FML: MCP 9.32 Powered by Forge 12.18.1.2044 4 mods loaded, 4 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAA	mcp{9.19} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAA	FML{8.0.99.99} [Forge Mod Loader] (forgeSrc-1.10.2-12.18.1.2044.jar) 
+	UCHIJAAAA	Forge{12.18.1.2044} [Minecraft Forge] (forgeSrc-1.10.2-12.18.1.2044.jar) 
+	UCHIJAAAA	wastelandsandwizards{1.0.0} [Wastelands And Wizards] (minecraft) 
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['Player921'/479, l='New World', x=-159.71, y=67.13, z=248.20]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

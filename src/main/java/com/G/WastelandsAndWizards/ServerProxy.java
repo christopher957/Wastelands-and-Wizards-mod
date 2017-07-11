@@ -1,7 +1,6 @@
 package com.G.WastelandsAndWizards;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ServerProxy extends CommonProxy {
 
@@ -15,8 +14,8 @@ public class ServerProxy extends CommonProxy {
         super.init(e);
     }
 
-    @Override
-    public void postInit(FMLPostInitializationEvent e) {
-        super.postInit(e);
-    }
+//    @Override
+//    public void postInit(FMLPostInitializationEvent e) {
+//        super.postInit(e);
+//    }
 }

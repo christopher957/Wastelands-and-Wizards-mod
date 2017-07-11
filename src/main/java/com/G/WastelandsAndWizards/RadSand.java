@@ -5,8 +5,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -19,8 +17,8 @@ public class RadSand extends Block {
 
     public RadSand(String unlocalizedName, Material material, float hardness, float resistance) {
         super(material);
-        this.setUnlocalizedName(unlocalizedName);
-        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+//        this.setUnlocalizedName(Main.MODID + ":" + unlocalizedName);
+        this.setCreativeTab(CreativeTabs.MISC);
         this.setHardness(hardness);
         this.setResistance(resistance);
         this.setLightLevel(5);
@@ -29,7 +27,7 @@ public class RadSand extends Block {
     }
 
     public RadSand(String unlocalizedName, float hardness, float resistance) {
-        this(unlocalizedName, Material.SAND, hardness, resistance);
+        this(unlocalizedName, Material.CACTUS, hardness, resistance);
     }
 
     public RadSand(String unlocalizedName) {
@@ -46,9 +44,7 @@ public class RadSand extends Block {
 
     @Override
     public void onEntityCollidedWithBlock (World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        System.out.println(" boop " );
-        if (entityIn instanceof EntityLiving) {
-            ((EntityLiving) entityIn).addPotionEffect(new PotionEffect(net.minecraft.potion.Potion.getPotionById(8196), 100, 1));
-        }
+        entityIn.setFire(1);
+        entityIn.setGlowing(true);
     }
-}
+    }

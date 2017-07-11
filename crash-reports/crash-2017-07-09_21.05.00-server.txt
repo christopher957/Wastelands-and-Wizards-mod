@@ -1,0 +1,46 @@
+---- Minecraft Crash Report ----
+// I let you down. Sorry :(
+
+Time: 7/9/17 9:05 PM
+Description: Exception in server tick loop
+
+java.lang.NullPointerException: Exception in server tick loop
+	at com.G.WastelandsAndWizards.wasteGenLayerBiome.<init>(wasteGenLayerBiome.java:38)
+	at com.G.WastelandsAndWizards.WorldTypeWasteLand.getBiomeLayer(WorldTypeWasteLand.java:19)
+	at net.minecraft.world.gen.layer.GenLayer.initializeAllBiomeGenerators(GenLayer.java:63)
+	at net.minecraft.world.biome.BiomeProvider.<init>(BiomeProvider.java:36)
+	at net.minecraft.world.biome.BiomeProvider.<init>(BiomeProvider.java:44)
+	at net.minecraft.world.WorldType.getBiomeProvider(WorldType.java:169)
+	at net.minecraft.world.WorldProvider.createBiomeProvider(WorldProvider.java:71)
+	at net.minecraft.world.WorldProvider.registerWorld(WorldProvider.java:48)
+	at net.minecraft.world.WorldServer.<init>(WorldServer.java:118)
+	at net.minecraft.server.integrated.IntegratedServer.loadAllWorlds(IntegratedServer.java:86)
+	at net.minecraft.server.integrated.IntegratedServer.startServer(IntegratedServer.java:124)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:496)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.10.2
+	Operating System: Windows 8.1 (amd64) version 6.3
+	Java Version: 1.7.0_79, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 661194744 bytes (630 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.32 Powered by Forge 12.18.1.2044 4 mods loaded, 4 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAA	mcp{9.19} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAA	FML{8.0.99.99} [Forge Mod Loader] (forgeSrc-1.10.2-12.18.1.2044.jar) 
+	UCHIJAA	Forge{12.18.1.2044} [Minecraft Forge] (forgeSrc-1.10.2-12.18.1.2044.jar) 
+	UCHIJAA	wastelandsandwizards{1.0.0} [Example Mod] (Wastelands-and-Wizards-mod) 
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 0 / 8; []
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
