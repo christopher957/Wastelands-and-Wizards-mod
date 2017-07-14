@@ -22,7 +22,10 @@ public class wastelandBiome {
     }
 
     public static void registerBiome() {
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WASTELAND_BIOME, 3));
+        BiomeManager.addBiome(BiomeManager.BiomeType.DESERT, new BiomeManager.BiomeEntry(WASTELAND_BIOME, 10000));
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WASTELAND_BIOME, 10000));
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(WASTELAND_BIOME, 10000));
+        BiomeManager.addBiome(BiomeManager.BiomeType.ICY, new BiomeManager.BiomeEntry(WASTELAND_BIOME, 10000));
         BiomeManager.removeSpawnBiome(Biomes.FOREST);
         BiomeManager.removeSpawnBiome(Biomes.PLAINS);
         BiomeManager.removeSpawnBiome(Biomes.TAIGA_HILLS);

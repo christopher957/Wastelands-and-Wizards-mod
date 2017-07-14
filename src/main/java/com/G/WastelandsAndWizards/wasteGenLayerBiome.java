@@ -35,11 +35,7 @@ public class wasteGenLayerBiome extends GenLayer {
 
         int desertIdx =  BiomeManager.BiomeType.DESERT.ordinal();
 
-
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.DESERT, 1));
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.SAVANNA, 1));
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.PLAINS, 1));
-        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(wastelandBiome.WASTELAND_BIOME, 100));
+        biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(wastelandBiome.WASTELAND_BIOME, 9000));
 
         if (p_i45560_4_ == WorldType.DEFAULT_1_1) {
             biomes[desertIdx].clear();
@@ -49,7 +45,7 @@ public class wasteGenLayerBiome extends GenLayer {
             biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.SWAMPLAND, 10));
             biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.PLAINS, 10));
             biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(Biomes.TAIGA, 10));
-            biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(wastelandBiome.WASTELAND_BIOME, 100));
+            biomes[desertIdx].add(new net.minecraftforge.common.BiomeManager.BiomeEntry(wastelandBiome.WASTELAND_BIOME, 5000));
             this.settings = null;
         } else if (p_i45560_4_ == WorldType.CUSTOMIZED) {
             this.settings = ChunkProviderSettings.Factory.jsonToFactory(p_i45560_5_).build();

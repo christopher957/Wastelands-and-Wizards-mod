@@ -5,9 +5,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -16,6 +18,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Created by skynet on 8/6/2016.
  */
 public class RadSand extends Block {
+    protected static final AxisAlignedBB CACTUS_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D, 0.9375D);
+    protected static final AxisAlignedBB CACTUS_COLLISION_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 1.0D, 0.9375D);
+
 
     public RadSand(String unlocalizedName, Material material, float hardness, float resistance) {
         super(material);
@@ -36,22 +41,24 @@ public class RadSand extends Block {
         this(unlocalizedName, 2.0f, 10.0f);
     }
 
-    @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
     {
-        AxisAlignedBB axis = new AxisAlignedBB(0.875D, 0.875D, 0.875D, 0.875D, 0.875D, 0.875D);
-        return axis;
+        return CACTUS_AABB;
     }
 
     @SideOnly(Side.CLIENT)
-    public double getMaxRenderDistanceSquared()
+    public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos)
     {
-        return 4096.0D;
+        return CACTUS_COLLISION_AABB.offset(pos);
     }
+
 
     @Override
     public void onEntityCollidedWithBlock (World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        entityIn.setFire(1);
+//        entityIn.setFire(1);
         entityIn.setGlowing(true);
+        if (entityIn instanceof EntityLivingBase) { // If the entity is an instance of EntityLivingBase or any class that inherits from it
+            ((EntityLivingBase) entityIn).addPotionEffect(new PotionEffect(Potion.getPotionById(19),600,1)); // Cast to EntityLivingBase and call addPotionEffect
+        }
     }
     }
